@@ -1,0 +1,2 @@
+C:\Users\btc36\Documents\family-recipes-front-end\Family-Recipes\obj\Debug\family-recipes.esproj.SuggestedBindingRedirects.cache
+C:\Users\btc36\Documents\family-recipes-front-end\Family-Recipes\obj\Debug\family-recipes.esproj.CoreCompileInputs.cache
