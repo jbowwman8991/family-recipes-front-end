@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    background-color: red;
+    justify-content: space-between;
+}
+
+.header-app-name {
+    background-color: green;
+}
+
+.header-links {
+    background-color: blue;
+    float: right;
+}
+
+.home-view {
+    display: grid;
+    background-color: blue;
+    height: 100vh;
+}
+
+.grid-home-menu {
+    grid-area: 1/ 1/ 4 / 1;
+}
+
+.grid-recipe-search {
+    grid-area: 1 / 2 / 4/ 4;
+}
+
+.recipe-search {
+    background-color: red;
+    width: 100%;
+}
+
+.recipe-types {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipe-type {
+    border: 1px solid black;
+    padding: 20px;
+    margin : 10px;
+}

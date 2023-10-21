@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Menu } from './Family-Recipes-Components/Menu';
+import { Home, Menu } from './Family-Recipes-Components/Home';
 import './css/FamilyRecipes.css';
+import { Feed } from './Family-Recipes-Components/Feed';
+import { Browse } from './Family-Recipes-Components/Browse';
+import { Account } from './Family-Recipes-Components/Account';
 
 export class FamilyRecipes extends Component {
     constructor(props) {
@@ -14,9 +17,29 @@ export class FamilyRecipes extends Component {
         return (
             <div>
                 {
-                    this.state.view == "mainPage"
+                    this.props.view == "home"
                     &&
-                    <Menu />
+                    <Home
+                    />
+                }
+                {
+                    this.props.view == "feed"
+                    &&
+                    <Feed
+
+                    />
+                }
+                {
+                    this.props.view == "browse"
+                    &&
+                    <Browse
+                    />
+                }
+                {
+                    this.props.view == "account"
+                    &&
+                    <Account
+                    />
                 }
             </div>
         );

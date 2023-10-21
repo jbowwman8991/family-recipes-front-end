@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Menu extends Component {
+export class RecipeMenu extends Component {
     constructor(props) {
         super(props);
     }
@@ -8,7 +8,7 @@ export class Menu extends Component {
     render() {
         return (
             <div>
-                <h2>Main Menu</h2>
+                <h2>Recipe Menu</h2>
             </div>
         );
     }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Header } from './Family-Recipes-Components/Header';
+import { Login } from './Family-Recipes-Components/Login';
 import { FamilyRecipes } from './FamilyRecipes';
 export default class App extends Component {
     static displayName = App.name;
@@ -8,11 +10,20 @@ export default class App extends Component {
         this.state = {
             isAuthorized: true,
             userId: 'ben',
-            userName: 'BenCook'
+            userName: 'BenCook',
+            view: "home"
         };
+        this.changeView = this.changeView.bind(this);
         this.authenticateUser = this.authenticateUser.bind(this);
         this.makeRESTCall = this.makeRESTCall.bind(this);
     }
+
+    changeView(view) {
+        this.setState({
+            view: view
+        });
+    }
+
 
     authenticateUser(userId, userName, userPermissions, appPermissions) {
         this.setState({
@@ -72,10 +83,19 @@ export default class App extends Component {
         if (this.state.isAuthorized) {
             return (
                 <div>
+                    <Header
+                        changeView={this.changeView}
+                    />
                     <FamilyRecipes
+                        view={this.state.view}
                     />
                 </div>
             )
-        }  
+        }
+        else {
+            return (
+                <Login />
+            );
+        }
     }
 }

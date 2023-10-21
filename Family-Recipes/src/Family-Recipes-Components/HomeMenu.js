@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Login extends Component {
+export class HomeMenu extends Component {
     constructor(props) {
         super(props);
     }
@@ -8,7 +8,8 @@ export class Login extends Component {
     render() {
         return (
             <div>
-                <h2>Login</h2>
+                <h1>My Recipes</h1>
+                <h1>Families</h1>
             </div>
         );
     }

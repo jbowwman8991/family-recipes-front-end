@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-export class Login extends Component {
+export class RecipeType extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div>
-                <h2>Login</h2>
+            <div className="recipe-type">
+                <h1>{this.props.recipeType}</h1>
             </div>
         );
     }
