@@ -7,7 +7,7 @@ export class RecipeType extends Component {
 
     render() {
         return (
-            <div className="recipe-type">
+            <div className="recipe-type" onClick={() => { this.props.updateRecipeType(this.props.recipeType) }}>
                 <h1>{this.props.recipeType}</h1>
             </div>
         );

@@ -16,6 +16,7 @@ export class Home extends Component {
                 </div>
                 <div className="grid-recipe-search">
                     <RecipeSearch
+                        changeView={this.props.changeView}
                     />
                 </div>
             </div>

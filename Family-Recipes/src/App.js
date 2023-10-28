@@ -8,30 +8,28 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthorized: true,
+            isAuthorized: false,
             userId: 'ben',
             userName: 'BenCook',
-            view: "home"
+            view: "home",
+            activeRecipe: ""
         };
         this.changeView = this.changeView.bind(this);
         this.authenticateUser = this.authenticateUser.bind(this);
         this.makeRESTCall = this.makeRESTCall.bind(this);
     }
 
-    changeView(view) {
+    changeView(view,activeRecipe="") {
         this.setState({
-            view: view
+            view: view,
+            activeRecipe: activeRecipe
         });
     }
 
 
-    authenticateUser(userId, userName, userPermissions, appPermissions) {
+    authenticateUser() {
         this.setState({
-            isAuthorized: true,
-            userId: userId,
-            userName: userName,
-            userPermissions: userPermissions,
-            appPermissions: appPermissions
+            isAuthorized: true
         });
     }
 
@@ -82,19 +80,24 @@ export default class App extends Component {
     render() {
         if (this.state.isAuthorized) {
             return (
-                <div>
+                <div className="main-app">
                     <Header
                         changeView={this.changeView}
                     />
                     <FamilyRecipes
                         view={this.state.view}
+                        changeView={this.changeView}
                     />
                 </div>
             )
         }
         else {
             return (
-                <Login />
+                <div className="authentication-pages">
+                    <Login
+                        authenticateUser={this.authenticateUser}
+                    />
+                </div>
             );
         }
     }

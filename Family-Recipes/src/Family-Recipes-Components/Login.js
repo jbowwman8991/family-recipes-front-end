@@ -9,6 +9,7 @@ export class Login extends Component {
         return (
             <div>
                 <h2>Login</h2>
+                <button onClick={this.props.authenticateUser}>Log In</button>
             </div>
         );
     }
