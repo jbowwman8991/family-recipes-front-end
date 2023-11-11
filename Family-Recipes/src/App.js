@@ -87,6 +87,7 @@ export default class App extends Component {
                     <FamilyRecipes
                         view={this.state.view}
                         changeView={this.changeView}
+                        makeRESTCall={this.makeRESTCall}
                     />
                 </div>
             )
