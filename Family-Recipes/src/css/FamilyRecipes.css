@@ -1,57 +1,144 @@
 .header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+div {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+span {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+button {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+input {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+a {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .header-app-name {
 }
 
 .header-links {
-    float: right;
+  float: right;
 }
 
 .authentication-pages {
-    text-align: center;
+  text-align: center;
 }
 
 .home-view {
-    display: grid;
-    height: 100vh;
+  display: grid;
+  height: 100vh;
 }
 
 .grid-home-menu {
-    grid-area: 1/ 1/ 4 / 1;
+  grid-area: 1/ 1/ 4 / 1;
 }
 
 .grid-recipe-search {
-    grid-area: 1 / 2 / 4/ 4;
+  grid-area: 1 / 2 / 4/ 4;
 }
 
 .recipe-search {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .recipe-types {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .recipe-type {
-    border: 1px solid black;
-    padding: 20px;
-    margin : 10px;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
 }
 
 .recipe-list {
-    text-align: center;
+  text-align: center;
 }
 
 .recipe-link {
-    border: solid;
-    margin : 20px;
+  border: solid;
+  margin: 20px;
 }
 
 .recipe-page {
-        
+}
+
+.text-box {
+  width: 300px;
+  height: 30px;
+  font-size: 0.9em;
+  outline: none;
+  border-radius: 10px;
+  border: 2px solid #e9e9e9;
+  transition: 0.3s all;
+  background-color: transparent;
+  /* color: #A3A4A8; */
+  padding-left: 10px;
+}
+
+.text-box:focus {
+  border: 2px solid #a3a4a8;
+}
+
+.loginpage {
+  background-color: #e5f9f3;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  align-items: center;
+  gap: 1em;
+  background-color: white;
+  border-radius: 1em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2em;
+  color: #a3a4a8;
+}
+
+.button {
+  background-color: #20c997;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px 20px;
+  height: 40px;
+  outline: none;
+  border: none;
+  width: fit-content;
+  cursor: pointer;
+  transition: 0.3s all;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+}
+
+.button:hover {
+  background-color: #92e2c8;
+}
+
+.link {
+  color: #20c997;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
 }
