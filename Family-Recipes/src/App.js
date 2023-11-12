@@ -12,7 +12,8 @@ export default class App extends Component {
             userId: 'ben',
             userName: 'BenCook',
             view: "home",
-            activeRecipe: ""
+            activeRecipe: "",
+            restURL: "https://recipes-99rp.onrender.com/"
         };
         this.changeView = this.changeView.bind(this);
         this.authenticateUser = this.authenticateUser.bind(this);
@@ -88,6 +89,7 @@ export default class App extends Component {
                         view={this.state.view}
                         changeView={this.changeView}
                         makeRESTCall={this.makeRESTCall}
+                        restURL={this.state.restURL}
                     />
                 </div>
             )
@@ -97,6 +99,8 @@ export default class App extends Component {
                 <div className="authentication-pages">
                     <Login
                         authenticateUser={this.authenticateUser}
+                        makeRESTCall={this.makeRESTCall}
+                        restURL={this.state.restURL}
                     />
                 </div>
             );

@@ -21,6 +21,7 @@ export class FamilyRecipes extends Component {
                     <Home
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
+                        restURL={this.props.restURL}
                     />
                 }
                 {
@@ -29,6 +30,7 @@ export class FamilyRecipes extends Component {
                     <Feed
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
+                        restURL={this.props.restURL}
                     />
                 }
                 {
@@ -37,6 +39,7 @@ export class FamilyRecipes extends Component {
                     <Browse
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
+                        restURL={this.props.restURL}
                     />
                 }
                 {
@@ -45,6 +48,7 @@ export class FamilyRecipes extends Component {
                     <Account
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
+                        restURL={this.props.restURL}
                     />
                 }
                 {
@@ -54,6 +58,7 @@ export class FamilyRecipes extends Component {
                         changeView={this.props.changeView}
                         activeRecipe={this.props.activeRecipe}
                         makeRESTCall={this.props.makeRESTCall}
+                        restURL={this.props.restURL}
                     />
                 }
                 {
@@ -62,6 +67,7 @@ export class FamilyRecipes extends Component {
                     <NewRecipe
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
+                        restURL={this.props.restURL}
                     />
                 }
             </div>
