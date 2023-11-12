@@ -1,8 +1,3 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
 div {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -20,6 +15,17 @@ input {
 }
 a {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color:#e5f9f3;
+  color: #20c997;
+  font-size: 12px;
+  padding: 0em 1em;
+  display: flex;
+  align-items: center;
 }
 
 .header-app-name {
@@ -49,6 +55,7 @@ a {
 .recipe-search {
   width: 100%;
   text-align: center;
+  padding-top: 1em;
 }
 
 .recipe-types {
@@ -57,9 +64,20 @@ a {
 }
 
 .recipe-type {
-  border: 1px solid black;
   padding: 20px;
   margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #F8F9FA;
+  border-radius: 1em;
+  color: #20c997;
+  font-size: 12px;
+  cursor: pointer;
+  transition: .3s all;
+}
+
+.recipe-type:hover {
+    background-color:#92e2c8;
+
 }
 
 .recipe-list {
@@ -141,4 +159,11 @@ a {
 
 .link:hover {
   text-decoration: underline;
+}
+
+.undertextbox {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 5px;
 }
