@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { RecipeList } from './RecipeList';
 import { RecipeTypes } from './RecipeTypes';
+import Button from '../Support-Components/Button';
+import TextBox from '../Support-Components/TextBox';
 
 export class RecipeSearch extends Component {
     constructor(props) {
@@ -20,10 +22,10 @@ export class RecipeSearch extends Component {
     render() {
         return (
             <div className="recipe-search">
-                <div>
-                    <button onClick={() => {this.props.changeView('new-recipe')}}>Create New Recipe +</button>
-                    <h3>Search for a Recipe</h3>
-                    <input></input> <p>View all</p>
+                <div style={{display: "flex", justifyContent: "center", padding: "1em 0em", position: "relative"}}>
+                    <Button onClick={() => {this.props.changeView('new-recipe')}} style={{position: "absolute", right:"1em", top: "0"}}>Create New Recipe +</Button>
+                    {/* <h3>Search for a Recipe</h3> */}
+                   <div style={{display: "flex", alignItems: "center", gap: "1em"}}><TextBox placeholder="Search Recipes..."/> <a className='link'>View all</a></div>
                 </div>
                 {
                     this.state.recipeType
