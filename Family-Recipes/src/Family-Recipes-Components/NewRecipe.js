@@ -70,13 +70,13 @@ export class NewRecipe extends Component {
             recipeSource: this.state.recipeSource
         };
         await this.props.makeRESTCall(
-            this.props.restURL,
+            this.props.restURL + "recipe",
             'post',
             postBody,
             (createNewRecipeResponse) => {
                 console.log("createNewRecipeResponse", createNewRecipeResponse);
                 alert("RECIPE SAVED");
-                this.props.changeView('home');
+                this.props.changeView('feed');
             },
             (title, error) => {
                 console.error('Error:', error);

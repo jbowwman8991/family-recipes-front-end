@@ -7,6 +7,8 @@ export class Home extends Component {
         super(props);
     }
 
+    getAllRecipes
+
     render() {
         return (
             <div className="home-view">

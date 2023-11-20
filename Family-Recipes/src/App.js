@@ -38,9 +38,10 @@ export default class App extends Component {
         var fetchParameters = {
             method: method,
             headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include'
+                'Content-Type': 'application/json',
+                mode: "cors",
+                credentials: "include"
+            }
         }
         if (body) {
             fetchParameters.body = JSON.stringify(body);

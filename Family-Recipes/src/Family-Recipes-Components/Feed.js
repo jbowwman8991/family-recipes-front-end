@@ -3,51 +3,66 @@ import React, { Component } from 'react';
 export class Feed extends Component {
     constructor(props) {
         super(props);
-        
+
+        this.state = {
+            recipes:[]
+        }
+        this.getAllRecipes = this.getAllRecipes.bind(this);
+        this.getAllRecipes();
+    }
+
+    async getAllRecipes() {
+        await this.props.makeRESTCall(
+            this.props.restURL + "recipe",
+            'get',
+            null,
+            (getAllRecipesResponse) => {
+                console.log("getAllRecipesResponse", getAllRecipesResponse);
+                this.setState({
+                    recipes: getAllRecipesResponse.data
+                })
+            },
+            (title, error) => {
+                console.error('Error:', error);
+                alert("THERE WAS AN ERROR Getting the Recipes");
+            },
+            () => {
+                //this.stopLoading();
+            }
+        );
+    }
+
+    async deleteRecipe(recipeId) {
+        await this.props.makeRESTCall(
+            this.props.restURL + "recipe/" + recipeId,
+            'delete',
+            null,
+            (deleteRecipeResponse) => {
+                console.log("deleteRecipeResponse", deleteRecipeResponse);
+                this.getAllRecipes();
+            },
+            (title, error) => {
+                console.error('Error:', error);
+                alert("THERE WAS AN ERROR Deleting the Recipe");
+            },
+            () => {
+                //this.stopLoading();
+            }
+        );
     }
 
     render() {
-        var recipes = [
-            {
-                name: "Nates famous chicken noodle",
-                description: "A medium challenging chicken noodle soup that will knock your socks off",
-                ingredients: [
-                    '1/2 cup chopped onion',
-                    '1 cup noodles',
-                    '1 cup veggies',
-                    '1/2 cup of water'
-                ]
-            },
-            {
-                name: "Nates famous chicken noodle",
-                description: "A medium challenging chicken noodle soup that will knock your socks off",
-                ingredients: [
-                    '1/2 cup chopped onion',
-                    '1 cup noodles',
-                    '1 cup veggies',
-                    '1/2 cup of water'
-                ]
-            },
-             {
-                name: "Nates famous chicken noodle",
-                description: "A medium challenging chicken noodle soup that will knock your socks off",
-                ingredients: [
-                    '1/2 cup chopped onion',
-                    '1 cup noodles',
-                    '1 cup veggies',
-                    '1/2 cup of water'
-                ]
-            }
-        ];
         return (
             <div>
                 <h2>Feed Page</h2>
                 {
-                    recipes.map((recipe, index) => {
-return (
-                            <div key={index}>
-                                <h3>{recipe.name}</h3>
+                    this.state.recipes.map((recipe, index) => {
+                    return (
+                        <div className="feed-recipe" key={recipe.recipeId}>
+                            <button onClick={() => { this.deleteRecipe(recipe.recipeId)}}>Delete {recipe.title}</button>
+                                <h3>{recipe.title}</h3>
                                 <p>{recipe.description}</p>
+                                <p>Difficulty: {recipe.difficultyLevel}</p>
                                 <ul>
                                     {
                                         recipe.ingredients.map((ingredient, index) => {
@@ -57,6 +72,7 @@ return (
                                         })
                                     }
                                 </ul>
+                                <p>Instructions: {recipe.instructions}</p>
                             </div>
                         );
                     })

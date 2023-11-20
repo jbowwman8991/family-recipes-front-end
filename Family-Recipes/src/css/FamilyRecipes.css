@@ -167,3 +167,7 @@ a {
   align-items: end;
   gap: 5px;
 }
+
+.feed-recipe {
+    border: solid;
+}
