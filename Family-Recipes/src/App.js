@@ -85,6 +85,7 @@ export default class App extends Component {
                 <div className="main-app">
                     <Header
                         changeView={this.changeView}
+                        view={this.state.view}
                     />
                     <FamilyRecipes
                         view={this.state.view}

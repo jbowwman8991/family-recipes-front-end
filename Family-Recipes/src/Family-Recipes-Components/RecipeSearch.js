@@ -40,10 +40,7 @@ export class RecipeSearch extends Component {
             Create New Recipe +
           </Button>
           {/* <h3>Search for a Recipe</h3> */}
-          <div style={{ display: "flex", alignItems: "center", gap: "1em" }}>
-            <TextBox placeholder="Search Recipes..." />{" "}
-            <a className="link">View all</a>
-          </div>
+    
         </div>
         {this.state.recipeType ? (
           <RecipeList
