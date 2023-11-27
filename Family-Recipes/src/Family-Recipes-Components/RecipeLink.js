@@ -10,7 +10,7 @@ export class RecipeLink extends Component {
         return (
             <div className='recipe-link' onClick={() => {this.props.changeView('recipe',1234)}}>
                 <h2>{this.props.name}</h2>
-
+                <div style={{display: "flex", justifyContent: "center", alignItems: "center", width: "300px", height: "270px", overflow: "hidden", borderBottomRightRadius: "15px", borderBottomLeftRadius: "15px"}}><img src={this.props.image} style={{width: "320px", height: "300px"}}/></div>
             </div>
         );
     }

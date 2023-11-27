@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { RecipeLink } from "./RecipeLink";
+import chickennoodle from "../images/chickennoodle.png"
 
 export class RecipeList extends Component {
   constructor(props) {
@@ -15,12 +16,15 @@ export class RecipeList extends Component {
     var changeViewFunction = this.props.changeView;
     return (
       <div className="recipe-list">
-        <h2>{this.props.recipeType}</h2>
+        <div className="category-header">
+          <img src={this.props.image} />
+          <h2>{this.props.recipeType}</h2>
+        </div>
         {recipes.map(function (recipe, idx) {
           console.log("RECIPE", recipe);
           return (
             <div key={idx}>
-              <RecipeLink name={recipe.name} changeView={changeViewFunction} />
+              <RecipeLink name={recipe.name} changeView={changeViewFunction} image={chickennoodle}/>
             </div>
           );
         })}
