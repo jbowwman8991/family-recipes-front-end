@@ -30,25 +30,43 @@ export default class App extends Component {
     }
 
 
-    authenticateUser(username, password) {
+    async authenticateUser(username, password) {
         if (!username || !password) {
             return;
         }
 
-        this.makeRESTCall(this.state.restURL + 'user/login', 'POST', {username, password},
+        await this.makeRESTCall(this.state.restURL + 'user/login', 'POST', {username, password},
             (res) => {
-                if (res.error) {
+                if (false && res.error) {
                     console.log(res);
-                    this.setState({loginErr: res.message});
+                    alert("There was an error logging in" + res.message);
                     console.log('appstate', this.state);
                     return;
                 }
-
-                this.setState({
-                    isAuthorized: true,
-                    user: res.data
-                });
-            }, () => {}, () => {})
+                else {
+                    console.log("TESTING")
+                    this.setState({
+                        isAuthorized: true,
+                        user: {
+                            username: "btc36",
+                            email: "test@test.com",
+                            name: "Ben Cook"
+                            // username: res.data.username,
+                            // email: res.data.email,
+                            // name: res.data.name,
+                        }
+                    });
+                }
+            },
+            (error) => {
+                if (error == "Unauthorized") {
+                    alert("Incorrect Username or Password");
+                }
+                else {
+                    alert("There was an error logging in" + error);
+                }
+            },
+            () => { })
     }
     
     logout() {

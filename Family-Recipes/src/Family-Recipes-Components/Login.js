@@ -7,10 +7,16 @@ export class Login extends Component {
     super(props);
     this.state = {
         username: "",
-        password: "",
-        loginErr: props.loginErr,
-    };
-  }
+        password: ""
+      };
+      this.loginUser = this.loginUser.bind(this);
+    }
+
+    async loginUser() {
+        await this.props.authenticateUser(this.state.username, this.state.password);
+        console.log('loingstate', this.state);
+    }
+
 
   render() {
     return (
@@ -31,14 +37,9 @@ export class Login extends Component {
             ></TextBox>
             <a className="link">Forgot Password?</a>
           </div>
-
           <Button onClick={async () => {
-              await this.props.authenticateUser(this.state.username, this.state.password)
-              console.log('loingstate', this.state);
+                    this.loginUser(this.state.username, this.state.password)
           }}>Log In</Button>
-
-          {this.state.loginErr && <span>Login err {this.state.loginErr}</span> }
-
           <p>
             Don't have an account? Create one <a className="link">here</a>
           </p>
