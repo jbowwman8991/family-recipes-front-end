@@ -5,13 +5,11 @@ import { RecipeSearch } from "./RecipeSearch";
 export class Home extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       page: "my-recipes",
-    };
+      };
+      this.changePage = this.changePage.bind(this);
   }
-
-  getAllRecipes;
 
 
   changePage(page) {
@@ -26,7 +24,7 @@ export class Home extends Component {
         <HomeMenu page={this.state.page} changePage={this.changePage} />
 
         {this.state.page === "my-recipes" && (
-          <RecipeSearch changeView={this.props.changeView} />
+                <RecipeSearch changeView={this.props.changeView} changePage={this.changePage} />
         )}
         {this.state.page === "families" && <div>Family Groups Page</div>}
       </div>

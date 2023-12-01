@@ -8,6 +8,7 @@ export class RecipeView extends Component {
     render() {
         return (
             < div className='recipe-page' >
+                <button onClick={this.props.backToList}>Back</button>
                 <button onClick={this.props.startEdit}>Edit Recipe</button>
                 <button onClick={this.props.deleteRecipe}>Delete Recipe</button>
                 <h1>Chicken Noodle Soup</h1>

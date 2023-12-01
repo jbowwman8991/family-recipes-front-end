@@ -11,6 +11,7 @@ export class RecipeSearch extends Component {
       recipeType: "",
     };
     this.updateRecipeType = this.updateRecipeType.bind(this);
+    this.backToList = this.backToList.bind(this);
   }
 
   updateRecipeType(recipeType, image) {
@@ -19,6 +20,13 @@ export class RecipeSearch extends Component {
       image: image,
     });
   }
+
+  backToList() {
+    this.setState({
+      recipeType: "",
+    });
+  }
+
 
   render() {
     return (
@@ -46,6 +54,8 @@ export class RecipeSearch extends Component {
           <RecipeList
             recipeType={this.state.recipeType}
             changeView={this.props.changeView}
+            changePage={this.props.changePage}
+            backToList={this.backToList}
             image={this.state.image}
           />
         ) : (
