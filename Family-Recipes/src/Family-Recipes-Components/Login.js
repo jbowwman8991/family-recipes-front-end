@@ -13,8 +13,6 @@ export class Login extends Component {
       register: false,
       error: null
     };
-    //this.loginUser = this.loginUser.bind(this);
-    //this.registerUser = this.registerUser.bind(this);
   }
 
     async loginUser() {
@@ -57,20 +55,21 @@ export class Login extends Component {
       <div className="loginpage">
         <div className="box text">
           <h2>{this.state.register && "Sign up " || "Sign in "}to start cooking!</h2>
+
           <TextBox
-            //   value={this.state.username}
             onChange={(e) => this.setState({ username: e.target.value })}
             placeholder="Username"
           ></TextBox>
+
           <div className="undertextbox">
             <TextBox
-              //   value={this.state.username}
               onChange={(e) => this.setState({ password: e.target.value })}
               placeholder="Password"
               type="password"
             ></TextBox>
           {!this.state.register && <a className="link">Forgot Password?</a>}
           </div>
+
           {this.state.register &&
           <>
             <div className="undertextbox">
@@ -85,6 +84,7 @@ export class Login extends Component {
             </div>
           </>
           }
+
           {this.state.error &&
           <span className="login-error">{this.state.error}</span>
           }
@@ -107,6 +107,7 @@ export class Login extends Component {
               )
             }
           </div>
+
         </div>
       </div>
     );

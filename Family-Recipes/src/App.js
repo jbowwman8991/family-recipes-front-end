@@ -10,8 +10,6 @@ export default class App extends Component {
         this.state = {
             isAuthorized: false,
             user: null,
-            // userId: 'ben',
-            // userName: 'BenCook',
             view: "home",
             activeRecipe: "",
             restURL: "https://recipes-99rp.onrender.com/"
@@ -31,13 +29,7 @@ export default class App extends Component {
     }
 
 
-    async authenticateUser(user) {
-        /*
-        if (!username || !password) {
-            return;
-        }
-        */
-
+    authenticateUser(user) {
         this.setState({
             isAuthorized: true,
             user: user
@@ -140,17 +132,13 @@ export default class App extends Component {
         }
         else {
             return (
-                <>
-                    <div className="authentication-pages">
-                        <Login
-                            authenticateUser={this.authenticateUser}
-                            makeRESTCall={this.makeRESTCall}
-                            restURL={this.state.restURL}
-                            loginErr={this.state.loginErr}
-                        />
-                    </div>
-                {this.state.loginErr && (<span style={{color: "red"}}>{this.loginErr}</span>)}
-                </>
+                <div className="authentication-pages">
+                    <Login
+                        authenticateUser={this.authenticateUser}
+                        makeRESTCall={this.makeRESTCall}
+                        restURL={this.state.restURL}
+                    />
+                </div>
             );
         }
     }
