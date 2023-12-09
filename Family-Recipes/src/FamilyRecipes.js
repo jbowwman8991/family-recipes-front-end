@@ -53,6 +53,7 @@ export class FamilyRecipes extends Component {
                         makeRESTCall={this.props.makeRESTCall}
                         restURL={this.props.restURL}
                         user={this.props.user}
+                        logout={this.props.logout}
                     />
                 }
                 {

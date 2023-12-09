@@ -14,12 +14,13 @@ export default class App extends Component {
             // userName: 'BenCook',
             view: "home",
             activeRecipe: "",
-           //restURL: "https://recipes-99rp.onrender.com/"
-            restURL: "http://127.0.0.1:5000/",
+            restURL: "https://recipes-99rp.onrender.com/"
+            //restURL: "http://127.0.0.1:5000/",
         };
         this.changeView = this.changeView.bind(this);
         this.authenticateUser = this.authenticateUser.bind(this);
         this.makeRESTCall = this.makeRESTCall.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     changeView(view,activeRecipe="") {
@@ -30,33 +31,38 @@ export default class App extends Component {
     }
 
 
-    async authenticateUser(username, password) {
+    async authenticateUser(user) {
+        /*
         if (!username || !password) {
             return;
         }
+        */
 
+        this.setState({
+            isAuthorized: true,
+            user: user
+        })
+
+        /*
         await this.makeRESTCall(this.state.restURL + 'user/login', 'POST', {username, password},
             (res) => {
-                if (false && res.error) {
+                if (res.error) {
                     console.log(res);
-                    alert("There was an error logging in" + res.message);
+                    alert("There was an error logging in: " + res.message);
                     console.log('appstate', this.state);
                     return;
                 }
-                else {
-                    console.log("TESTING")
-                    this.setState({
-                        isAuthorized: true,
-                        user: {
-                            username: "btc36",
-                            email: "test@test.com",
-                            name: "Ben Cook"
-                            // username: res.data.username,
-                            // email: res.data.email,
-                            // name: res.data.name,
-                        }
-                    });
-                }
+                this.setState({
+                    isAuthorized: true,
+                    user: {
+                        //username: "btc36",
+                        //email: "test@test.com",
+                        //name: "Ben Cook"
+                        username: res.data.username,
+                        email: res.data.email,
+                        name: res.data.name,
+                    }
+                });
             },
             (error) => {
                 if (error == "Unauthorized") {
@@ -67,12 +73,14 @@ export default class App extends Component {
                 }
             },
             () => { })
+        */
     }
     
     logout() {
         this.setState({
             isAuthorized: false,
-            user: null
+            user: null,
+            view: "home",
         });
     }
 
@@ -125,20 +133,24 @@ export default class App extends Component {
                         makeRESTCall={this.makeRESTCall}
                         restURL={this.state.restURL}
                         user={this.state.user}
+                        logout={this.logout}
                     />
                 </div>
             )
         }
         else {
             return (
-                <div className="authentication-pages">
-                    <Login
-                        authenticateUser={this.authenticateUser}
-                        makeRESTCall={this.makeRESTCall}
-                        restURL={this.state.restURL}
-                        loginErr={this.state.loginErr}
-                    />
-                </div>
+                <>
+                    <div className="authentication-pages">
+                        <Login
+                            authenticateUser={this.authenticateUser}
+                            makeRESTCall={this.makeRESTCall}
+                            restURL={this.state.restURL}
+                            loginErr={this.state.loginErr}
+                        />
+                    </div>
+                {this.state.loginErr && (<span style={{color: "red"}}>{this.loginErr}</span>)}
+                </>
             );
         }
     }
