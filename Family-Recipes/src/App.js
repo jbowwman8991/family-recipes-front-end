@@ -9,15 +9,16 @@ export default class App extends Component {
         super(props);
         this.state = {
             isAuthorized: false,
-            userId: 'ben',
-            userName: 'BenCook',
+            user: null,
             view: "home",
             activeRecipe: "",
             restURL: "https://recipes-99rp.onrender.com/"
+            //restURL: "http://127.0.0.1:5000/",
         };
         this.changeView = this.changeView.bind(this);
         this.authenticateUser = this.authenticateUser.bind(this);
         this.makeRESTCall = this.makeRESTCall.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     changeView(view,activeRecipe="") {
@@ -28,9 +29,50 @@ export default class App extends Component {
     }
 
 
-    authenticateUser() {
+    authenticateUser(user) {
         this.setState({
-            isAuthorized: true
+            isAuthorized: true,
+            user: user
+        })
+
+        /*
+        await this.makeRESTCall(this.state.restURL + 'user/login', 'POST', {username, password},
+            (res) => {
+                if (res.error) {
+                    console.log(res);
+                    alert("There was an error logging in: " + res.message);
+                    console.log('appstate', this.state);
+                    return;
+                }
+                this.setState({
+                    isAuthorized: true,
+                    user: {
+                        //username: "btc36",
+                        //email: "test@test.com",
+                        //name: "Ben Cook"
+                        username: res.data.username,
+                        email: res.data.email,
+                        name: res.data.name,
+                    }
+                });
+            },
+            (error) => {
+                if (error == "Unauthorized") {
+                    alert("Incorrect Username or Password");
+                }
+                else {
+                    alert("There was an error logging in" + error);
+                }
+            },
+            () => { })
+        */
+    }
+    
+    logout() {
+        this.setState({
+            isAuthorized: false,
+            user: null,
+            view: "home",
         });
     }
 
@@ -47,32 +89,22 @@ export default class App extends Component {
             fetchParameters.body = JSON.stringify(body);
         }
         await fetch(URL, fetchParameters).then(response => {
-            if (!response.ok) {
-                console.log("ERROR:", response);
-                if (response.status == 401) {
-                    return Promise.reject("Unauthorized");
-                }
-                else {
-                    return Promise.reject("Unknown Error - Please contact I.T.");
-                }
-            }
-            else {
                 return response.json();
-            }
         }).then((responseInfo) => {
             return responseFunction(responseInfo);
         }).catch((error) => {
-            if (error == "Unauthorized") {
+            /* if (error == "Unauthorized") {
                 console.log("UNATHORIZED");
                 alert("Session Timeout: Your session has timed out and you will need to log in again");
-                this.logout();
+                //this.logout();
                 //Log them out, they are unauthorized
             }
             else if (error.message == "Failed to fetch") {
                 errorFunction("Unknown Error", "There was an Network error. Check your internet connection and try again");
             } else {
                 errorFunction("Unknown Error", error);
-            }
+            } */
+            return errorFunction(error);
         }).finally(() => {
             finalFunction();
         });
@@ -92,6 +124,8 @@ export default class App extends Component {
                         changeView={this.changeView}
                         makeRESTCall={this.makeRESTCall}
                         restURL={this.state.restURL}
+                        user={this.state.user}
+                        logout={this.logout}
                     />
                 </div>
             )

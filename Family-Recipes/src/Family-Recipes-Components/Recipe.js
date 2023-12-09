@@ -12,6 +12,7 @@ export class Recipe extends Component {
         this.deleteRecipe = this.deleteRecipe.bind(this);
         this.saveRecipe = this.saveRecipe.bind(this);
         this.cancelEdit = this.cancelEdit.bind(this)
+        this.backToList = this.backToList.bind(this);
     }
 
     startEdit() {
@@ -40,6 +41,11 @@ export class Recipe extends Component {
         });
     }
 
+    backToList() {
+        this.props.changeView("home");
+    }
+
+
 
     render() {
         return (
@@ -50,7 +56,7 @@ export class Recipe extends Component {
                     <RecipeView
                         startEdit={this.startEdit}
                         deleteRecipe={this.deleteRecipe}
-
+                        backToList={this.backToList}
                     />
                 }
                 {

@@ -22,6 +22,7 @@ export class FamilyRecipes extends Component {
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
                         restURL={this.props.restURL}
+                        user={this.props.user}
                     />
                 }
                 {
@@ -31,6 +32,7 @@ export class FamilyRecipes extends Component {
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
                         restURL={this.props.restURL}
+                        user={this.props.user}
                     />
                 }
                 {
@@ -40,6 +42,7 @@ export class FamilyRecipes extends Component {
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
                         restURL={this.props.restURL}
+                        user={this.props.user}
                     />
                 }
                 {
@@ -49,6 +52,8 @@ export class FamilyRecipes extends Component {
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
                         restURL={this.props.restURL}
+                        user={this.props.user}
+                        logout={this.props.logout}
                     />
                 }
                 {
@@ -59,6 +64,7 @@ export class FamilyRecipes extends Component {
                         activeRecipe={this.props.activeRecipe}
                         makeRESTCall={this.props.makeRESTCall}
                         restURL={this.props.restURL}
+                        user={this.props.user}
                     />
                 }
                 {
@@ -68,6 +74,7 @@ export class FamilyRecipes extends Component {
                         changeView={this.props.changeView}
                         makeRESTCall={this.props.makeRESTCall}
                         restURL={this.props.restURL}
+                        user={this.props.user}
                     />
                 }
             </div>

@@ -4,8 +4,9 @@ import chickennoodle from "../images/chickennoodle.png"
 
 export class RecipeList extends Component {
   constructor(props) {
-    super(props);
-  }
+      super(props);
+    }
+
 
   render() {
     var recipes = [
@@ -15,7 +16,8 @@ export class RecipeList extends Component {
     ];
     var changeViewFunction = this.props.changeView;
     return (
-      <div className="recipe-list">
+        <div className="recipe-list">
+            <button onClick={this.props.backToList}>Back</button>
         <div className="category-header">
           <img src={this.props.image} />
           <h2>{this.props.recipeType}</h2>
