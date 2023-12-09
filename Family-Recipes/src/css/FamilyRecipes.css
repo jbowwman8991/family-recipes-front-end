@@ -273,3 +273,16 @@ flex-direction: row;
 .feed-recipe {
     border: solid;
 }
+
+
+.recipe-edit-page {
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 2em;
+    color: #a3a4a8;
+}

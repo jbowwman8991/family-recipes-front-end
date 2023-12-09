@@ -65,7 +65,6 @@ export class Recipe extends Component {
                     <RecipeEdit
                         saveRecipe={this.saveRecipe}
                         cancelEdit={this.cancelEdit}
-
                     />
                 }
             </div>
